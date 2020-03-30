@@ -6,25 +6,25 @@ public class ConditionalStatement {
 		char firstLetter = 'M';
 
 		if (age > 20) {
-			System.out.println("Не проходишь по возрасту");
+			System.out.println("РЈР¶Рµ СЃС‚Р°СЂС‹Р№");
 		}
 		if (isMan == true) {
-			System.out.println("Это мужчина");
+			System.out.println("Р­С‚Рѕ РјСѓР¶С‡РёРЅР°");
 		}
 		if (isMan != true) {
-			System.out.println("Это не мужчина");
+			System.out.println("Р­С‚Рѕ РЅРµ РјСѓР¶С‡РёРЅР°");
 		}
 		if (height < 1.80) {
-			System.out.println("Подходит в танкисты");
+			System.out.println("РџРѕРґРѕР№РґРµС‚ РІ С‚Р°РЅРєРёСЃС‚С‹");
 		} else {
-			System.out.println("Не подходит в танкисты");
+			System.out.println("РќРµ РїРѕРґРѕР№РґРµС‚ РІ С‚Р°РЅРєРёСЃС‚С‹");
 		}
 		if (firstLetter == 'M') {
-			System.out.println("Это Марфа");
+			System.out.println("Р­С‚Рѕ РњР°СЂС„Р°");
 		} else if (firstLetter == 'I') {
-			System.out.println("Кто это?");
+			System.out.println("Р­С‚Рѕ РЅРµ РњР°СЂС„Р°");
 		} else {
-			System.out.println("Не знаю, кто ты");
+			System.out.println("РќРµ Р·РЅР°СЋ, РєС‚Рѕ СЌС‚Рѕ");
 		}
 	}
 }
