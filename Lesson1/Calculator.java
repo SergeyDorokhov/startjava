@@ -11,12 +11,8 @@ public class Calculator {
 			System.out.println(x * y);
 		} else if (operation == '/') {
 			System.out.println(x / y);
-		} else if (operation == '*') {
-			System.out.println(x * y);
 		} else if (operation == '%') {
 			System.out.println(x % y);
-		} else if (operation == '*') {
-			System.out.println(x * y);
 		} else if (operation == '^') {
 			int result = 1;
 			for (int i = 1; i <= y; i++ ) {
