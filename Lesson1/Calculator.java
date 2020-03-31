@@ -3,6 +3,7 @@ public class Calculator {
 		int x = 3;
 		int y = 3;
 		char operation = '^';
+
 		if (operation == '+') {
 			System.out.println(x + y);
 		} else if (operation == '-') {
@@ -16,7 +17,7 @@ public class Calculator {
 		} else if (operation == '^') {
 			int result = 1;
 			for (int i = 1; i <= y; i++ ) {
-				result = result * x;
+				result *= x;
 			}
 			System.out.println(result);
 		}
