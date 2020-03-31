@@ -11,9 +11,7 @@ public class MyFirstGame {
 				System.out.println ("Вы ввели: " + declaredNumber + ". Загадано большее число!");
 				declaredNumber++;
 			}
-			if (declaredNumber == hiddenNumber) {
-				System.out.println ("Вы ввели: " + declaredNumber + ". Вы угадали!");
-			}
 		} while (declaredNumber != hiddenNumber);
+		System.out.println ("Вы ввели: " + declaredNumber + ". Вы угадали!");
 	}
 }
