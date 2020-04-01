@@ -5,7 +5,6 @@ public class Person {
 	float height = 1.80f;
 	float weight = 80.5f;
 
-	
 	public void walk() {
 
 	}
