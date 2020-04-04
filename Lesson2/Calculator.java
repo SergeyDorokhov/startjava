@@ -48,14 +48,13 @@ public class Calculator {
 				break;
 			case '^':
 				int result = 1;
-				for (int i = 1; i <= secondNumber; i++ ) {
+				for (int i = 1; i <= secondNumber; i++) {
 					result *= firstNumber;
 				}
 				System.out.println(result);
 				break;
-			default: System.out.println("Неизвестный знак");
-				break;
+			default:
+				System.out.println("Неизвестный знак");
 		}
-		
 	}
 }

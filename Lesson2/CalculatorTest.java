@@ -5,6 +5,7 @@ public class CalculatorTest {
 		Calculator calc = new Calculator();
 		Scanner scan = new Scanner(System.in);
 		char userReply;
+
 		do {
 			System.out.print("Введите первое число: ");
 			int firstNumber = scan.nextInt();
@@ -21,14 +22,12 @@ public class CalculatorTest {
 			calc.setSecondNumber(secondNumber);
 
 			calc.calculate();
-			
-			while (true) {
+
+			do {
 				System.out.println("Хотите продолжить? [y/n]: ");
 				userReply = scan.nextLine().charAt(0);
-				if (userReply == 'y' || userReply == 'n') {
-					break;
-				}
-			}
+			} while (userReply != 'y' && userReply != 'n');
+
 		} while (userReply != 'n');
 	}
 }
