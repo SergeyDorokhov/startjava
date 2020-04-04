@@ -29,10 +29,10 @@ public class Calculator {
 		this.operation = operation;
 	}
 
-	public char calculate() {
+	public void calculate() {
 		switch (operation) {
 			case '+':
-				System.out.println(this.firstNumber + this.secondNumber);
+				System.out.println(firstNumber + secondNumber);
 				break;
 			case '-':
 				System.out.println(firstNumber - secondNumber);
@@ -56,16 +56,6 @@ public class Calculator {
 			default: System.out.println("Неизвестный знак");
 				break;
 		}
-		Scanner scan;
-		char userReply;
-		while (true) {
-			System.out.println("Хотите продолжить? [y/n]: ");
-			scan = new Scanner(System.in);
-			userReply = scan.nextLine().charAt(0);
-			if (userReply == 'y' || userReply == 'n') {
-				break;
-			}
-		}
-	return userReply;
+		
 	}
 }
