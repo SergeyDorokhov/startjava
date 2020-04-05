@@ -1,17 +1,7 @@
 public class JaegerTest {
 	public static void main(String[] args) {
-		Jaeger tom = new Jaeger();
-		Jaeger jerry = new Jaeger();
-
-		tom.setName("Tom");
-		tom.setModelName("Gipsy Danger");
-		tom.setSpeed(10);
-		tom.setArmor(20);
-
-		jerry.setName("Jerry");
-		jerry.setModelName("Gipsy Avenger");
-		jerry.setSpeed(11);
-		jerry.setArmor(22);
+		Jaeger tom = new Jaeger("Tom", "Gipsy Danger", 10, 20);
+		Jaeger jerry = new Jaeger("Jerry", "Gipsy Avenger", 11, 22);
 
 		System.out.println("Tom model: " + tom.getModelName());
 		System.out.println("Jerry model: " + jerry.getModelName());
