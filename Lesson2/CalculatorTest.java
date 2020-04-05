@@ -8,18 +8,15 @@ public class CalculatorTest {
 
 		do {
 			System.out.print("Введите первое число: ");
-			int firstNumber = scan.nextInt();
+			calc.setFirstNumber(scan.nextInt());
 			scan.nextLine();
-			calc.setFirstNumber(firstNumber);
 
 			System.out.print("Введите знак математической операции: ");
-			char operation = scan.nextLine().charAt(0);
-			calc.setOperation(operation);
+			calc.setOperation(scan.nextLine().charAt(0));
 
 			System.out.print("Введите второе число: ");
-			int secondNumber = scan.nextInt();
+			calc.setSecondNumber(scan.nextInt());
 			scan.nextLine();
-			calc.setSecondNumber(secondNumber);
 
 			calc.calculate();
 
@@ -27,7 +24,6 @@ public class CalculatorTest {
 				System.out.println("Хотите продолжить? [y/n]: ");
 				userReply = scan.nextLine().charAt(0);
 			} while (userReply != 'y' && userReply != 'n');
-
 		} while (userReply != 'n');
 	}
 }
