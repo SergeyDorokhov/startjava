@@ -1,47 +1,46 @@
 import java.util.*;
 
 public class GuessNumber {
+	Player playerOne;
+	Player playerTwo;
 	private int hiddenNumber;
+	Scanner scan = new Scanner(System.in);
 
-	public GuessNumber() {
+	public GuessNumber(Player playerOne, Player playerTwo) {
+		this.playerOne = playerOne;
+		this.playerTwo = playerTwo;
 		hiddenNumber = (int)(Math.random() * 101);
 	}
 
-	public void startGame(Player playerOne, Player playerTwo) {
-		Scanner scan = new Scanner(System.in);
-		char userReply;
-
+	public void startGame() {
 		System.out.println("Компьютер загадал число от нуля до 100! Ваша задача - угадать это число!");
-		do {
-			while (true) {
-				if (isGuessed(playerOne)) {
-					break;
-				}
-				if (isGuessed(playerTwo)) {
-					break;
-				}
+		while (true) {
+			if (checkNumber(guessNumber(playerOne))) {
+				break;
 			}
-			do {
-			System.out.println("Еще одну игру? [y/n]: ");
-			userReply = scan.nextLine().charAt(0);
-			} while (userReply != 'y' && userReply != 'n');
-		} while (userReply != 'n');
+			if (checkNumber(guessNumber(playerTwo))) {
+				break;
+			}
+		}
 	}
 
-	private boolean isGuessed (Player player) {
-		Scanner scan = new Scanner(System.in);
+	private boolean checkNumber(Player player) {
 		boolean isVictory = false;
-		
-		System.out.println(player.getName() + ", введите число!");
-		int declaredNumber = scan.nextInt();
+		int declaredNumber = player.getNumber();
 		if (declaredNumber > hiddenNumber) {
-				System.out.println ("Вы ввели: " + declaredNumber + ". Загадано меньшее число!");
-			} else if (declaredNumber < hiddenNumber) {
-				System.out.println ("Вы ввели: " + declaredNumber + ". Загадано большее число!");
-			} else {
-				System.out.println ("Вы ввели: " + declaredNumber + ". Вы угадали!");
-				isVictory = true;
-			}
+			System.out.println ("Вы ввели: " + declaredNumber + ". Загадано меньшее число!");
+		} else if (declaredNumber < hiddenNumber) {
+			System.out.println ("Вы ввели: " + declaredNumber + ". Загадано большее число!");
+		} else {
+			System.out.println ("Вы ввели: " + declaredNumber + ". Вы угадали!");
+			isVictory = true;
+		}
 		return isVictory;
 	}
+
+	private Player guessNumber(Player player) {
+		System.out.println(player.getName() + ", введите число!");
+		player.setNumber(scan.nextInt());
+		return player;
+		}
 }
