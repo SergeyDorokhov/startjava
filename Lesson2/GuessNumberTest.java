@@ -13,8 +13,8 @@ public class GuessNumberTest {
 		do {
 			guessNumber.startGame();
 			do {
-			System.out.println("Еще одну игру? [y/n]: ");
-			userReply = scan.nextLine().charAt(0);
+				System.out.println("Еще одну игру? [y/n]: ");
+				userReply = scan.nextLine().charAt(0);
 			} while (userReply != 'y' && userReply != 'n');
 		} while (userReply != 'n');
 	}

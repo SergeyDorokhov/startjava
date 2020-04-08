@@ -1,10 +1,10 @@
 import java.util.*;
 
 public class GuessNumber {
-	Player playerOne;
-	Player playerTwo;
+	private Player playerOne;
+	private Player playerTwo;
 	private int hiddenNumber;
-	Scanner scan = new Scanner(System.in);
+	private Scanner scan = new Scanner(System.in);
 
 	public GuessNumber(Player playerOne, Player playerTwo) {
 		this.playerOne = playerOne;
@@ -24,23 +24,23 @@ public class GuessNumber {
 		}
 	}
 
-	private boolean checkNumber(Player player) {
-		boolean isVictory = false;
-		int declaredNumber = player.getNumber();
-		if (declaredNumber > hiddenNumber) {
-			System.out.println ("Вы ввели: " + declaredNumber + ". Загадано меньшее число!");
-		} else if (declaredNumber < hiddenNumber) {
-			System.out.println ("Вы ввели: " + declaredNumber + ". Загадано большее число!");
-		} else {
-			System.out.println ("Вы ввели: " + declaredNumber + ". Вы угадали!");
-			isVictory = true;
-		}
-		return isVictory;
-	}
-
 	private Player guessNumber(Player player) {
 		System.out.println(player.getName() + ", введите число!");
 		player.setNumber(scan.nextInt());
 		return player;
+	}
+
+	private boolean checkNumber(Player player) {
+		int currentNumber = player.getNumber();
+		if (currentNumber > hiddenNumber) {
+			System.out.println ("Вы ввели: " + currentNumber + ". Загадано меньшее число!");
+			return false;
+		} else if (currentNumber < hiddenNumber) {
+			System.out.println ("Вы ввели: " + currentNumber + ". Загадано большее число!");
+			return false;
+		} else {
+			System.out.println ("Вы ввели: " + currentNumber + ". Вы угадали!");
+			return true;
 		}
+	}
 }
