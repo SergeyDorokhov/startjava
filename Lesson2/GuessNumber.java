@@ -9,16 +9,16 @@ public class GuessNumber {
 	public GuessNumber(Player playerOne, Player playerTwo) {
 		this.playerOne = playerOne;
 		this.playerTwo = playerTwo;
-		hiddenNumber = (int)(Math.random() * 101);
 	}
 
 	public void startGame() {
+		hiddenNumber = (int)(Math.random() * 101);
 		System.out.println("Компьютер загадал число от нуля до 100! Ваша задача - угадать это число!");
 		while (true) {
-			if (checkNumber(guessNumber(playerOne))) {
+			if (inputNumber(guessNumber(playerOne))) {
 				break;
 			}
-			if (checkNumber(guessNumber(playerTwo))) {
+			if (inputNumber(guessNumber(playerTwo))) {
 				break;
 			}
 		}
@@ -30,17 +30,16 @@ public class GuessNumber {
 		return player;
 	}
 
-	private boolean checkNumber(Player player) {
+	private boolean inputNumber(Player player) {
 		int currentNumber = player.getNumber();
 		if (currentNumber > hiddenNumber) {
 			System.out.println ("Вы ввели: " + currentNumber + ". Загадано меньшее число!");
-			return false;
 		} else if (currentNumber < hiddenNumber) {
 			System.out.println ("Вы ввели: " + currentNumber + ". Загадано большее число!");
-			return false;
 		} else {
 			System.out.println ("Вы ввели: " + currentNumber + ". Вы угадали!");
 			return true;
 		}
+		return false;
 	}
 }
