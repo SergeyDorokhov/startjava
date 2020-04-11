@@ -1,3 +1,5 @@
+package com.startjava.Lesson2.guessNumber;
+
 import java.util.*;
 
 public class GuessNumber {

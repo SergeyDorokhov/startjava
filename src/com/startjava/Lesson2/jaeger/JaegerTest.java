@@ -1,3 +1,5 @@
+package com.startjava.Lesson2.jaeger;
+
 public class JaegerTest {
 	public static void main(String[] args) {
 		Jaeger tom = new Jaeger("Tom", "Gipsy Danger", 10, 20);
