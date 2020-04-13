@@ -1,21 +1,21 @@
 package com.startjava.Lesson4.calculator;
 
 public class Calculator {
-    private String mathExpression;
+    private String srcMathExpression;
 
-    public String getMathExpression() {
-        return mathExpression;
+    public String getSrcMathExpression() {
+        return srcMathExpression;
     }
 
-    public void setMathExpression(String mathExpression) {
-        this.mathExpression = mathExpression;
+    public void setSrcMathExpression(String srcMathExpression) {
+        this.srcMathExpression = srcMathExpression;
     }
 
     public void calculate() {
-        String[] mathExpressionArray = mathExpression.split(" ");
-        int firstNumber = Integer.parseInt(mathExpressionArray[0]);
-        int secondNumber = Integer.parseInt(mathExpressionArray[2]);
-        char operation = mathExpressionArray[1].charAt(0);
+        String[] splitMathExpression = srcMathExpression.split(" ");
+        int firstNumber = Integer.parseInt(splitMathExpression[0]);
+        int secondNumber = Integer.parseInt(splitMathExpression[2]);
+        char operation = splitMathExpression[1].charAt(0);
 
         switch (operation) {
             case '+':
