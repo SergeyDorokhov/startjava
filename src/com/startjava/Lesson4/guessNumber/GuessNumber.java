@@ -1,5 +1,6 @@
 package com.startjava.Lesson4.guessNumber;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class GuessNumber {
@@ -14,26 +15,22 @@ public class GuessNumber {
     }
 
     public void startGame() {
-        playerOne.setAttempt(0);
-        playerTwo.setAttempt(0);
+        nullify(playerOne);
+        nullify(playerTwo);
         Player winner = null;
         hiddenNumber = (int) (Math.random() * 101);
         System.out.println("Компьютер загадал число от нуля до 100! У вас 10 попыток, чтобы угадать его!");
         while (true) {
-            playerOne.setAttempt(playerOne.getAttempt() + 1);
             if (checkNumber(inputNumber(playerOne))) {
                 winner = playerOne;
                 break;
-            } else {
-                checkAttempt(playerOne);
             }
-            playerTwo.setAttempt(playerTwo.getAttempt() + 1);
+            checkAttempt(playerOne);
             if (checkNumber(inputNumber(playerTwo))) {
                 winner = playerTwo;
                 break;
-            } else {
-                checkAttempt(playerTwo);
             }
+            checkAttempt(playerTwo);
             if (playerTwo.getAttempt() == 10) {
                 break;
             }
@@ -41,13 +38,18 @@ public class GuessNumber {
         if (winner != null) {
             System.out.println("Игрок " + winner.getName() + " угадал число " + hiddenNumber + " с " + winner.getAttempt() + " попытки");
         }
-        outputNumbers(playerOne);
-        outputNumbers(playerTwo);
+        displayNumbers(playerOne);
+        displayNumbers(playerTwo);
+    }
+
+    private void nullify(Player player) {
+        Arrays.fill(player.getNumbers(), 0, player.getAttempt(), 0);
+        player.setAttempt(0);
     }
 
     private Player inputNumber(Player player) {
         System.out.println(player.getName() + ", введите число!");
-        player.getNumbers()[player.getAttempt() - 1] = scan.nextInt();
+        player.insertNumber(scan.nextInt());
         return player;
     }
 
@@ -70,10 +72,11 @@ public class GuessNumber {
         }
     }
 
-    private void outputNumbers(Player player) {
+    private void displayNumbers(Player player) {
+        int[] finalNumbers = Arrays.copyOf(player.getNumbers(), player.getAttempt());
         System.out.print("Числа игрока " + player.getName() + ":");
-        for (int i = 0; i < player.getAttempt(); i++) {
-            System.out.print(" " + player.getNumbers()[i]);
+        for (int value : finalNumbers) {
+            System.out.print(" " + value);
         }
         System.out.println();
     }

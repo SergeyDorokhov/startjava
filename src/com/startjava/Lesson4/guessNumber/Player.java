@@ -21,15 +21,15 @@ public class Player {
         return numbers;
     }
 
-    public void setNumbers(int[] numbers) {
-        this.numbers = numbers;
-    }
-
     public int getAttempt() {
         return attempt;
     }
 
     public void setAttempt(int attempt) {
         this.attempt = attempt;
+    }
+
+    public void insertNumber(int number) {
+        numbers[attempt++] = number;
     }
 }
