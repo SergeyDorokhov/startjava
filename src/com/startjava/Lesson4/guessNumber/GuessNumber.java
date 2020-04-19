@@ -15,8 +15,8 @@ public class GuessNumber {
     }
 
     public void startGame() {
-        nullify(playerOne);
-        nullify(playerTwo);
+        init(playerOne);
+        init(playerTwo);
         Player winner = null;
         hiddenNumber = (int) (Math.random() * 101);
         System.out.println("Компьютер загадал число от нуля до 100! У вас 10 попыток, чтобы угадать его!");
@@ -42,7 +42,7 @@ public class GuessNumber {
         displayNumbers(playerTwo);
     }
 
-    private void nullify(Player player) {
+    private void init(Player player) {
         Arrays.fill(player.getNumbers(), 0, player.getAttempt(), 0);
         player.setAttempt(0);
     }
